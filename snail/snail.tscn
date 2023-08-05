@@ -1,0 +1,163 @@
+[gd_scene load_steps=22 format=3 uid="uid://bijj4umsy7rw2"]
+
+[ext_resource type="Texture2D" uid="uid://ccwsmvluqnccn" path="res://assets/Snail_Char/Jitsu - Snail Large.png" id="1_02w2q"]
+[ext_resource type="Script" path="res://snail/snail.gd" id="1_wun2c"]
+[ext_resource type="AudioStream" uid="uid://nvjjtn7mxkx7" path="res://assets/polzet.mp3" id="3_vbdli"]
+[ext_resource type="AudioStream" uid="uid://c6b8cqrfqbji7" path="res://assets/Morgenstimmung.Morning Mood.Peer Gynt.Grieg.begins with nature sounds Edited by Marino van Wakeren [TubeRipper.com].mp3" id="4_yry4r"]
+[ext_resource type="AudioStream" uid="uid://p15ak4fg3qul" path="res://assets/hedgehog.mp3" id="5_8513y"]
+[ext_resource type="AudioStream" uid="uid://cn07561og55hk" path="res://assets/squeak.mp3" id="6_8uqd0"]
+[ext_resource type="AudioStream" uid="uid://b0bxp3sjqf73x" path="res://assets/snail_eat.mp3" id="7_du8lp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk1u"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(0, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6jx5"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(144, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hoy1"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(288, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fohv1"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(0, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mle5"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(144, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58e6k"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(288, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0fbx"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(0, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7fv2"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(144, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0h35"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(288, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61xaw"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(0, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_265e5"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(144, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bota7"]
+atlas = ExtResource("1_02w2q")
+region = Rect2(288, 288, 144, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmqo6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6jx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hoy1")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fohv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mle5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58e6k")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0fbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7fv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0h35")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61xaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_265e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bota7")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0sa40"]
+radius = 24.0
+
+[node name="Snail" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 0
+script = ExtResource("1_wun2c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_bmqo6")
+animation = &"up"
+frame_progress = 0.158971
+offset = Vector2(0, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -21)
+shape = SubResource("CircleShape2D_0sa40")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SnailArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnailArea"]
+position = Vector2(1, -21)
+shape = SubResource("CircleShape2D_0sa40")
+
+[node name="AudioCrawl" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vbdli")
+
+[node name="AudioMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yry4r")
+autoplay = true
+
+[node name="AudioHedgehog" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8513y")
+
+[node name="AudioDie" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8uqd0")
+
+[node name="AudioEat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_du8lp")
+volume_db = 20.0
+
+[connection signal="area_entered" from="SnailArea" to="." method="_on_snail_area_area_entered"]

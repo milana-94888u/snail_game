@@ -1,0 +1,178 @@
+[gd_scene load_steps=20 format=3 uid="uid://ceoauleya4o2p"]
+
+[ext_resource type="PackedScene" uid="uid://bijj4umsy7rw2" path="res://snail/snail.tscn" id="1_n016u"]
+[ext_resource type="Texture2D" uid="uid://denu4m6pe2e" path="res://assets/Jitsu - Snail Large.png" id="2_wfh61"]
+[ext_resource type="Texture2D" uid="uid://dncg4f5ulivcb" path="res://assets/heart pixel art 254x254.png" id="3_3ni1b"]
+[ext_resource type="Texture2D" uid="uid://d2gx3c2hak2ck" path="res://assets/grape.png" id="3_e03iu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46h41"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(0, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmd6q"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(144, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfexs"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(288, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrkig"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(0, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1trp"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(144, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhorv"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(288, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3evq"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(0, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1cc1"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(144, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkxby"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(288, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_him37"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(0, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqund"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(144, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4f2"]
+atlas = ExtResource("2_wfh61")
+region = Rect2(288, 288, 144, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lurtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46h41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmd6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfexs")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrkig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1trp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhorv")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3evq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1cc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkxby")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_him37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqund")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4f2")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3v624"]
+bg_color = Color(0.741176, 0, 0.184314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtho4"]
+bg_color = Color(0.72549, 0.2, 0.752941, 1)
+
+[node name="BrokenSnail" instance=ExtResource("1_n016u")]
+speed = 160
+health = 3
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lurtg")
+frame_progress = 0.0
+
+[node name="Control" type="Control" parent="." index="4"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -920.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 580.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" index="0"]
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 84.0
+
+[node name="Health" type="HBoxContainer" parent="Control/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Health" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_3ni1b")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Health" index="1"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_3v624")
+max_value = 3.0
+value = 3.0
+
+[node name="Grapes" type="HBoxContainer" parent="Control/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Grapes" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_e03iu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Grapes" index="1"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_qtho4")
+max_value = 5.0

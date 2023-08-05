@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0p2eer88mg43"]
+
+[ext_resource type="VideoStream" path="res://assets/snail_intro.ogv" id="1_eeea8"]
+[ext_resource type="Script" path="res://cinematic/intro_cinematic.gd" id="2_ykvdq"]
+
+[node name="IntroCinematic" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_eeea8")
+autoplay = true
+script = ExtResource("2_ykvdq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

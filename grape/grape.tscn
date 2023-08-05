@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgvgxiehfv8uy"]
+
+[ext_resource type="Script" path="res://grape/grape.gd" id="1_ny6ka"]
+[ext_resource type="Texture2D" uid="uid://d2gx3c2hak2ck" path="res://assets/grape.png" id="1_uy5wg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sud76"]
+height = 34.0
+
+[node name="Grape" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_ny6ka")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18, 18)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_uy5wg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 18)
+shape = SubResource("CapsuleShape2D_sud76")

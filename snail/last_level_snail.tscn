@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbc2wgn27ydmv"]
+
+[ext_resource type="PackedScene" uid="uid://ceoauleya4o2p" path="res://snail/broken_snail.tscn" id="1_y02ju"]
+
+[node name="LastLevelSnail" instance=ExtResource("1_y02ju")]
+
+[node name="Control" parent="." index="4"]
+visible = false
