@@ -152,6 +152,7 @@ shape = SubResource("CircleShape2D_0sa40")
 
 [node name="AudioCrawl" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vbdli")
+volume_db = -10.0
 
 [node name="AudioMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_yry4r")

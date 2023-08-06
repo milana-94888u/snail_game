@@ -127,6 +127,7 @@ sprite_frames = SubResource("SpriteFrames_lurtg")
 frame_progress = 0.0
 
 [node name="Control" type="Control" parent="." index="4"]
+z_index = 2
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
