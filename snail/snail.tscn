@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bijj4umsy7rw2"]
+[gd_scene load_steps=23 format=3 uid="uid://bijj4umsy7rw2"]
 
 [ext_resource type="Texture2D" uid="uid://ccwsmvluqnccn" path="res://assets/Snail_Char/Jitsu - Snail Large.png" id="1_02w2q"]
 [ext_resource type="Script" path="res://snail/snail.gd" id="1_wun2c"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://p15ak4fg3qul" path="res://assets/hedgehog.mp3" id="5_8513y"]
 [ext_resource type="AudioStream" uid="uid://cn07561og55hk" path="res://assets/squeak.mp3" id="6_8uqd0"]
 [ext_resource type="AudioStream" uid="uid://b0bxp3sjqf73x" path="res://assets/snail_eat.mp3" id="7_du8lp"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="8_ae81o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atk1u"]
 atlas = ExtResource("1_02w2q")
@@ -136,6 +137,12 @@ position = Vector2(1, -21)
 shape = SubResource("CircleShape2D_0sa40")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Virtual Joystick" parent="Camera2D/CanvasLayer" instance=ExtResource("8_ae81o")]
+offset_top = -300.0
+offset_bottom = 0.0
 
 [node name="SnailArea" type="Area2D" parent="."]
 
